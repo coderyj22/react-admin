@@ -1,7 +1,22 @@
 import React, { Component } from 'react'
 import {Button,Pagination} from 'antd'
 
-export default class App extends Component {
+const testHOC = (WrapperComponent) => {
+  return class HOCComponent extends Component{
+    render(){
+      return (
+        <>
+          <WrapperComponent/>
+          <div>
+            这是高阶组件
+          </div>
+        </>
+      )
+    }
+  }
+}
+@testHOC
+class App extends Component {
   render() {
     return (
       <div>
@@ -13,3 +28,5 @@ export default class App extends Component {
     )
   }
 }
+
+export default App
