@@ -8,6 +8,7 @@ export default class App extends Component {
         <Button loading type='primary'>asd</Button>
         <Pagination defaultCurrent={1} total={50} />
         <Pagination showQuickJumper defaultCurrent={2} total={500} />
+        
       </div>
     )
   }
