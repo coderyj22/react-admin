@@ -2,10 +2,11 @@ import React from 'react'
 import { render } from 'react-dom'
 import App from './App'
 import zhCN from 'antd/es/locale/zh_CN';
+import './index.less'
 import { ConfigProvider } from 'antd'
 import { HashRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 
-import { mainRouter } from './routes'
+import { mainRoutes } from './routes'
 
 render(
   <ConfigProvider locale={zhCN}>
@@ -16,7 +17,7 @@ render(
           return <App {...routerProps} />
         }} />
         {
-          mainRouter.map(route => {
+          mainRoutes.map(route => {
             return <Route key={route.pathname} path={route.pathname} component={route.component} />
           })
         }

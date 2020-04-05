@@ -1,3 +1,5 @@
+import { DashboardOutlined, UnorderedListOutlined, SettingOutlined } from '@ant-design/icons';
+
 import {
   DashBoard,
   Login,
@@ -7,7 +9,7 @@ import {
   Edit
 } from '../views'
 
-export const mainRouter = [
+export const mainRoutes = [
   {
     pathname: '/login',
     component: Login
@@ -18,22 +20,31 @@ export const mainRouter = [
   }
 ]
 
-export const adminRouter = [
+export const adminRoutes = [
   {
     pathname: '/admin/dashboard',
-    component: DashBoard
-  },
-  {
-    pathname: '/admin/settings',
-    component: Settings
+    component: DashBoard,
+    title: '仪表盘',
+    isNav: true,
+    icon: DashboardOutlined
   },
   {
     pathname: '/admin/article',
     component: ArticleList,
-    exact: true
+    title: '文章管理',
+    isNav: true,
+    exact: true,
+    icon: UnorderedListOutlined
   },
   {
     pathname: '/admin/article/edit/:id',
     component: Edit
+  },
+  {
+    pathname: '/admin/settings',
+    component: Settings,
+    title: '设置',
+    isNav: true,
+    icon: SettingOutlined
   }
 ]

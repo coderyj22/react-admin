@@ -1,30 +1,32 @@
 import React, { Component } from 'react'
-import {Button,Pagination} from 'antd'
+import { adminRoutes } from './routes'
+import { Route, Switch, Redirect } from 'react-router-dom'
+import { Frame } from './components'
 
-const testHOC = (WrapperComponent) => {
-  return class HOCComponent extends Component{
-    render(){
-      return (
-        <>
-          <WrapperComponent/>
-          <div>
-            这是高阶组件
-          </div>
-        </>
-      )
-    }
-  }
-}
-@testHOC
 class App extends Component {
   render() {
     return (
-      <div>
-        <Button loading type='primary'>asd</Button>
-        <Pagination defaultCurrent={1} total={50} />
-        <Pagination showQuickJumper defaultCurrent={2} total={500} />
-        
-      </div>
+      <>
+        <Frame>
+          <Switch>
+            {
+              adminRoutes.map(route => {
+                return (
+                  <Route
+                    key={route.pathname}
+                    path={route.pathname}
+                    exact={route.exact}
+                    render={(routerProps) => {
+                      return <route.component  {...routerProps} />
+                    }} />
+                )
+              })
+            }
+            <Redirect to={adminRoutes[0].pathname} from='/admin' exact />
+            <Redirect to='/404' />
+          </Switch>
+        </Frame>
+      </>
     )
   }
 }
