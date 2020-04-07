@@ -25,9 +25,25 @@ service.interceptors.response.use((resp) => {
   }
 })
 
+// 获取文章列表
 export const getArticles = (offset, limited) => {
   return service.post('/api/v1/article', {
     offset,
     limited
   })
+}
+
+// 删除文章
+export const deleteArticle = (id) => {
+  return service.post(`/api/v1/articleDelete/${id}`)
+}
+
+// 通过id获取文章信息
+export const getArticleById = (id) => {
+  return service.post(`/api/v1/articleInfo/${id}`)
+}
+
+// 保存文章
+export const saveArticle = (id,data) => {
+  return service.post(`/api/v1/article/${id}`,data)
 }
