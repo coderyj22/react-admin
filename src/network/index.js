@@ -1,9 +1,13 @@
 import axios from 'axios'
-import {message} from 'antd'
+import { message } from 'antd'
 
 const isDev = process.env.NODE_ENV === 'development'
 
 const service = axios.create({
+  baseURL: isDev ? "http://rap2.taobao.org:38080/app/mock/249731" : ''
+})
+
+const service1 = axios.create({
   baseURL: isDev ? "http://rap2.taobao.org:38080/app/mock/249731" : ''
 })
 
@@ -44,6 +48,23 @@ export const getArticleById = (id) => {
 }
 
 // 保存文章
-export const saveArticle = (id,data) => {
-  return service.post(`/api/v1/article/${id}`,data)
+export const saveArticle = (id, data) => {
+  return service.post(`/api/v1/article/${id}`, data)
 }
+
+// 获取文章阅读量
+export const getArticleAmount = () => {
+  return service.post(`/api/v1/articleAmount`)
+}
+
+// 获取通知列表
+export const getNotifications = () => {
+  return service.post(`/api/v1/notifications`)
+}
+
+
+// 用户登陆
+export const loginRequest = (userInfo) => {
+  return service1.post('/api/v1/login', userInfo)
+}
+

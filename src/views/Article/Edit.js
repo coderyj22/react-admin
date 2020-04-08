@@ -1,6 +1,7 @@
 import React, { Component, createRef } from 'react'
 import { Card, Button, Form, Input, DatePicker, Spin, message } from 'antd'
 import { getArticleById, saveArticle } from '../../network'
+import './Edit.less'
 import moment from 'moment'
 
 import E from 'wangeditor'
@@ -112,7 +113,7 @@ export default class Edit extends Component {
                 }
               ]}
             >
-              <div ref={this.editorRef} style={{ flexWrap: 'wrap' }} />
+              <div ref={this.editorRef} className='content-editor' />
             </Form.Item>
             <Form.Item
               wrapperCol={{ offset: 4 }}

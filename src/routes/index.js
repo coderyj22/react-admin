@@ -6,7 +6,9 @@ import {
   NotFound,
   Settings,
   ArticleList,
-  Edit
+  Edit,
+  Notifications,
+  NoAuth
 } from '../views'
 
 export const mainRoutes = [
@@ -26,7 +28,8 @@ export const adminRoutes = [
     component: DashBoard,
     title: '仪表盘',
     isNav: true,
-    icon: DashboardOutlined
+    icon: DashboardOutlined,
+    roles:['001','002','003']
   },
   {
     pathname: '/admin/article',
@@ -34,17 +37,30 @@ export const adminRoutes = [
     title: '文章管理',
     isNav: true,
     exact: true,
-    icon: UnorderedListOutlined
+    icon: UnorderedListOutlined,
+    roles:['001','002']
   },
   {
     pathname: '/admin/article/edit/:id',
-    component: Edit
+    component: Edit,
+    roles:['001','002']
+  },
+  {
+    pathname: '/admin/notifications',
+    component: Notifications,
+    roles:['001','002','003']
+  },
+  {
+    pathname: '/admin/NoAuth',
+    component: NoAuth,
+    roles:['001','002','003']
   },
   {
     pathname: '/admin/settings',
     component: Settings,
     title: '设置',
     isNav: true,
-    icon: SettingOutlined
+    icon: SettingOutlined,
+    roles:['001']
   }
 ]

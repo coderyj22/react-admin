@@ -1,4 +1,4 @@
-import loadable from '../common/js/util' 
+import loadable from '../common/js/util'
 // import loadable from './loadable'   // 自己封装的loadable懒加载
 
 // import DashBoard from './DashBoard/DashBoard'
@@ -21,6 +21,10 @@ const ArticleList = loadable(() => import('./Article/Article'))
 
 const Edit = loadable(() => import('./Article/Edit'))
 
+const Notifications = loadable(() => import('./Notifications/Notifications'))
+
+const NoAuth = loadable(() => import('./NoAuth/NoAuth'))
+
 
 
 
@@ -31,5 +35,7 @@ export {
   NotFound,
   Settings,
   ArticleList,
-  Edit
+  Edit,
+  Notifications,
+  NoAuth
 }
